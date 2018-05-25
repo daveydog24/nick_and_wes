@@ -1,0 +1,12 @@
+Class User(models.Model):
+    name = models.CharField(max_length="255")
+    courses = models.ManyToManyField(Course, related_name="students")
+    instructor = models.ForeignKeyField(Course, related_name="instructors")
+
+Class Course(models.Model):
+    course_name = models.CharField(max_length="255")
+    course_content = models.TextField()
+
+# can you have a manytomany and one to many field point to the same model? 
+# many courses can have many students
+# one user (instructor) can instruct many courses
